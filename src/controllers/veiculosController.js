@@ -25,7 +25,7 @@ module.exports = {
     },
 
     async update (req, res) {
-        const { id } = req.param
+        const { id } = req.params
         const data = req.body
         var veiculo
         try {
@@ -44,7 +44,7 @@ module.exports = {
     },
 
     async delete (req, res) {
-        const { id } = req.param
+        const { id } = req.params
         try {
             await Veiculos.destroy({
                 where: {
