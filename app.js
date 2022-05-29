@@ -2,6 +2,7 @@ var express = require('express');
 var logger = require('morgan');
 const veiculoRouter = require('./src/routes/veiculos')
 require('./database/database')
+var cors = require('cors')
 var app = express();
 
 
