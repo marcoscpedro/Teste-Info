@@ -1,6 +1,15 @@
 const Veiculos = require("../models/veiculos")
 
 module.exports = {
+    async index (req, res){
+        var veiculos
+        try {
+            veiculos = await Veiculos.findAll()
+        } catch (error) {
+            return res.send(error).status(500)
+        }
+        return res.send(veiculos).status(200)
+    },
 
     async create (req, res){
         const data = req.body

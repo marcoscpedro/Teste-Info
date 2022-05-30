@@ -25,19 +25,44 @@ const mockRequest = {
 
 const res = mockResponse()
 
-describe("Store", () => {
-    it("Store function should be defined", () => {
+describe('Index', () => {
+    it("Index function should be defined", () => {
+        expect(veiculoController.index).to.exist
+    })
+
+    it("Index should return status 200", async () => {
+        const veiculoModelMock = stub(Veiculos,'findAll').returns({id:1})
+        const result = await veiculoController.index(mockRequest, res)
+        sinon.assert.calledWith(res.status, 200)
+    })
+
+    it("Index should return status 500", async () => {
+        const veiculoModelMock = stub(Veiculos, 'findAll').throws()
+        const result = await veiculoController.index(mockRequest, res)
+        sinon.assert.calledWith(res.status, 500)
+    })
+
+
+    afterEach(function () {
+        sinon.restore();
+    })
+
+})
+
+
+describe("Create", () => {
+    it("Create function should be defined", () => {
         expect(veiculoController.create).to.exist
     })
 
-    it("Store should return status 200", async () => {
+    it("Create should return status 200", async () => {
         const veiculoModelMock = sinon.stub(Veiculos, "create").returns({id:1})
         
         const result = await veiculoController.create(mockRequest, res)
         sinon.assert.calledWith(res.status, 200)
     })
 
-    it("Store should return status 500", async () => {
+    it("Create should return status 500", async () => {
         const veiculoModelMock = sinon.stub(Veiculos, 'create').throws()
         const result = await veiculoController.create(mockRequest, res)
         sinon.assert.calledWith(res.status, 500)
