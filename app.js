@@ -4,7 +4,7 @@ const veiculoRouter = require('./src/routes/veiculos')
 require('./database/database')
 var cors = require('cors')
 var app = express();
-
+app.use(cors())
 
 
 app.use(logger('dev'));
