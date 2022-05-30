@@ -1,3 +1,13 @@
+Rodar comando npm install para instalar dependencias
+
+Configurar o banco de dados em config/config.js
+
+rodar comandos
+
+    npx sequelize-cli db:create (Vai gerar o banco de dados)
+
+    npx sequelize-cli db:migrate (Rodar as migration)
+
 Rotas Disponiveis
 
 
